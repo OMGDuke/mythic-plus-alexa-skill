@@ -27,8 +27,8 @@ currentAffix = () => {
     week7: 'Raging, Necrotic, Tyrannical',
     week8: 'Bolstering, Skittish, Fortified'
   };
-    let week = "week" + this.calculateWeeks();
-    return affixCollection[week]
+  let week = "week" + this.calculateWeeks();
+  return affixCollection[week]
 };
 
 calculateWeeks = () => {
