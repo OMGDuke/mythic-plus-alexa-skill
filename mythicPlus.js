@@ -1,7 +1,7 @@
 exports.handler = (event, context) => {
   switch(event.request.intent) {
     case: 'CurrentAffixes':
-      generateResponse(currentAffix());
+      generateResponse('The current affixes are 'currentAffix());
   }
 };
 
@@ -17,18 +17,25 @@ generateResponse = (outputText) => {
 };
 
 currentAffix = () => {
-  let affixes = [
-    'Raging, Volcanic, Tyrannical',
-    'Teeming, Explosive, Fortified',
-    'Bolstering, Grievous, Tyrannical',
-    'Sanguine, Volcanic, Fortified',
-    'Bursting, Skittish, Tyrannical',
-    'Teeming, Quaking, Fortified',
-    'Raging, Necrotic, Tyrannical',
-    'Bolstering, Skittish, Fortified',
-    'Unknown, Unknown, Unknown',
-    'Unknown, Unknown, Unknown'
-  ]
-  return "Affixes called"
+  let affixCollection = {
+    week1: 'Raging, Volcanic, Tyrannical',
+    week2: 'Teeming, Explosive, Fortified',
+    week3: 'Bolstering, Grievous, Tyrannical',
+    week4: 'Sanguine, Volcanic, Fortified',
+    week5: 'Bursting, Skittish, Tyrannical',
+    week6: 'Teeming, Quaking, Fortified',
+    week7: 'Raging, Necrotic, Tyrannical',
+    week8: 'Bolstering, Skittish, Fortified'
+  };
+    let week = "week" + this.calculateWeeks();
+    return affixCollection[week]
+};
 
+calculateWeeks = () => {
+    const oneDay = 24*60*60*1000;
+    let start  = new Date(Date.UTC(2017, 2, 29, 7, 0, 0));
+    let today = new Date();
+    let daysBetween = Math.round(Math.abs((start.getTime() - today.getTime())/(oneDay)));
+    let weeks =  Math.floor(daysBetween/7);
+    return (weeks%8) + 1;
 }
