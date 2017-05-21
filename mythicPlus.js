@@ -1,7 +1,8 @@
 exports.handler = (event, context) => {
-  switch(event.request.intent) {
-    case: 'CurrentAffixes':
-      generateResponse('The current affixes are 'currentAffix());
+  if(event.request.intent.name === 'CurrentAffixes') {
+    context.succeed(
+      generateResponse('The current affixes are ' + currentAffix())
+    );
   }
 };
 
@@ -9,11 +10,11 @@ generateResponse = (outputText) => {
   return {
     response: {
       outputSpeech: {
-        type: 'PlainText',
+        type: "PlainText",
         text: outputText
       }
     }
-  }
+  };
 };
 
 currentAffix = () => {
@@ -27,8 +28,8 @@ currentAffix = () => {
     week7: 'Raging, Necrotic, Tyrannical',
     week8: 'Bolstering, Skittish, Fortified'
   };
-  let week = "week" + this.calculateWeeks();
-  return affixCollection[week]
+  let week = "week" + calculateWeeks();
+  return affixCollection[week];
 };
 
 calculateWeeks = () => {
@@ -38,4 +39,4 @@ calculateWeeks = () => {
     let daysBetween = Math.round(Math.abs((start.getTime() - today.getTime())/(oneDay)));
     let weeks =  Math.floor(daysBetween/7);
     return (weeks%8) + 1;
-}
+};
