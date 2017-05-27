@@ -1,12 +1,19 @@
 exports.handler = (event, context) => {
-  if (event.request.intent.name === 'CurrentAffixes') {
-    context.succeed(
-      generateResponse('The current affixes are ' + currentAffix())
-    );
-  } else if (event.request.type === 'LaunchRequest') {
-    context.succeed(
-      generateResponse('Ask me what this weeks affixes are')
-    );
+  switch(event.request.type) {
+    case "LaunchRequest":
+      context.succeed(
+        generateResponse('Ask me what this weeks affixes are')
+      );
+      break;
+
+    case "IntentRequest":
+      switch(event.request.intent.name) {
+        case "CurrentAffixes":
+          context.succeed(
+            generateResponse('The current affixes are ' + currentAffix())
+          );
+          break;
+      }
   }
 };
 
