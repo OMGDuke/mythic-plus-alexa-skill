@@ -1,7 +1,11 @@
 exports.handler = (event, context) => {
-  if(event.request.intent.name === 'CurrentAffixes') {
+  if (event.request.intent.name === 'CurrentAffixes') {
     context.succeed(
       generateResponse('The current affixes are ' + currentAffix())
+    );
+  } else if (event.request.type === 'LaunchRequest') {
+    context.succeed(
+      generateResponse('Ask me what this weeks affixes are')
     );
   }
 };
@@ -26,7 +30,8 @@ currentAffix = () => {
     week5: 'Bursting, Skittish, Tyrannical',
     week6: 'Teeming, Quaking, Fortified',
     week7: 'Raging, Necrotic, Tyrannical',
-    week8: 'Bolstering, Skittish, Fortified'
+    week8: 'Bolstering, Skittish, Fortified',
+    week9: 'Teeming, Necrotic, Tyrannical'
   };
   let week = "week" + calculateWeeks();
   return affixCollection[week];
@@ -38,5 +43,5 @@ calculateWeeks = () => {
     let today = new Date();
     let daysBetween = Math.round(Math.abs((start.getTime() - today.getTime())/(oneDay)));
     let weeks =  Math.floor(daysBetween/7);
-    return (weeks%8) + 1;
+    return (weeks%9) + 1;
 };
