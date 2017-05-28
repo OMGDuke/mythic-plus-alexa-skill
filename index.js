@@ -36,7 +36,6 @@ exports.handler = (event, context)  => {
     alexa.execute();
 };
 
-
 currentAffix = () => {
   let affixCollection = {
     week1: 'Raging, Volcanic, Tyrannical',
