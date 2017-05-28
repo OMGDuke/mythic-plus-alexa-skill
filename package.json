@@ -1,0 +1,22 @@
+{
+  "name": "mythic-plus-alexa-skill",
+  "version": "1.0.0",
+  "description": "An Alexa skill to return this weeks affixes",
+  "main": "mythicPlus.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OMGDuke/mythic-plus-alexa-skill.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OMGDuke/mythic-plus-alexa-skill/issues"
+  },
+  "homepage": "https://github.com/OMGDuke/mythic-plus-alexa-skill#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.9"
+  }
+}
