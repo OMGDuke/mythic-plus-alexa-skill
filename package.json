@@ -2,7 +2,7 @@
   "name": "mythic-plus-alexa-skill",
   "version": "1.0.0",
   "description": "An Alexa skill to return this weeks affixes",
-  "main": "mythicPlus.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/OMGDuke/mythic-plus-alexa-skill.git"
   },
-  "author": "",
+  "author": "Alex Robertson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/OMGDuke/mythic-plus-alexa-skill/issues"
